@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Title</title>
+		<meta charset="UTF-8">
+		<meta name=description content="">
+		<meta name=viewport content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap CSS -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="css/animate.css"/>
+	</head>
+	<body>
+
+    <p class="text1">设计达人</p>
+                <ul class="texts">
+                    <li class="tlt">领先行业的高度集成嵌入式架构</li>
+                    <li data-in-effect="fadeIn">Another Title</li>
+                </ul>
+
+        <p class="text2">我热爱设计，虽然没有达到狂热的程度，但注定我已经离不开设计，它就像有生命似的，改变了我、我的生活，而我也坚信，设计能改变人们、人们的生活以及全世界。所以我高傲的称自己为设计达人，而你就是下一个！</p>
+
+
+		<!-- jQuery -->
+		<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js/jquery.lettering.js"></script>
+    <script src="js/jquery.textillate.js"></script>
+        <script>
+//            $('.tlt').textillate({in: { effect: 'bounceInDown' }});
+            $('.text2').textillate({
+                initialDelay: 1000, 	//设置动画开始时间
+                in: { effect: 'bounceInDown'	//设置动画名称
+                }
+            });
+            $('.text1').textillate({ in: { effect: 'rollIn' } });
+        </script>
+	</body>
+</html>
