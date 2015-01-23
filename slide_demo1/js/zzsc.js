@@ -23,18 +23,20 @@ $(function () {
             var that = this;
             that.o = o;
             /*banner-bg*/
-            that.list = o.find('div.banner');
-            that.bannerBg = o.find('.banner-bg');
+            that.list = o.find('div.banner'); /*    获取大图节点列表      */
+            that.bannerBg = o.find('.banner-bg');/*   焦点背景图      */
 
             /*banner-nav*/
-            that.nav = o.find('.banner-nav li');
+            that.nav = o.find('.banner-nav li');    /*  nav底部节点列表   */
 
             /*banner-bar-bg*/
-            that.bar = o.find('.banner-bar');
+            that.bar = o.find('.banner-bar');       /*  进度条 */
             that.initlist();
             /*为nav li 赋值*/
-            that.bindNav();
-            that.starFocustAm();
+            that.bindNav();  /* =====》animateOut(), animateIn（i） i为下次进入的效果  */
+            /*  点击焦点切换点效果  */
+            that.starFocustAm();    /*  =====>nextSlider()      */
+            /*  开始下一次切换     */
             that.bindIEClick();
             /* 兼容性 */
         },
@@ -196,3 +198,9 @@ $(function () {
 })(window);
 //初始化轮播组件
 window.slider.init($('.slide-banner'));
+/*
+var mas;
+for(var i in window){
+    mas+=i+"==="+window[i]+"<br />";
+}
+document.write(mas);*/

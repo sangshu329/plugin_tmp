@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{background-color: black;}
+        .tabsDiv{width: 500px;height: 350px;margin-top: 0px;margin-left: 0px;}
+        .tabsDiv ul{width: 500px;height: 20px;list-style: none;background-color: black;margin-bottom: 0px;margin: 0px;padding: 0px;}
+        .tabsDiv div{width: 500px;height: 330px;background-color: white;}
+        .tabsSeletedLi{width: 100px;height: 20px;background-color: white;float: left;text-align: center;}
+        .tabsSeletedLi a{width: 100px;height: 20px;color: black;}
+        .tabsUnSeletedLi{width: 100px;height: 20px;background-color: black;float: left;text-align: center;}
+        .tabsUnSeletedLi a{width: 100px;height: 20px;color: white;}
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#mytabs").tabs();
+        });
+
+        ; (function ($) {
+            $.fn.tabs = function (options) {
+                var defualts = { switchingMode: "click" };
+                var opts = $.extend({}, defualts, options);
+                var obj = $(this);
+                var clickIndex = 0;
+                obj.addClass("tabsDiv");
+                $("ul li:first", obj).addClass("tabsSeletedLi");
+                $("ul li", obj).not(":first").addClass("tabsUnSeletedLi");
+                $("div", obj).not(":first").hide();
+                $("ul li", obj).bind(opts.switchingMode, function () {
+                    if (clickIndex != $("ul li", obj).index($(this))) {
+                        clickIndex = $("ul li", obj).index($(this));
+                        $(".tabsSeletedLi", obj).removeClass("tabsSeletedLi").addClass("tabsUnSeletedLi");
+                        $(this).removeClass("tabsUnSeletedLi").addClass("tabsSeletedLi");
+                        var divid = $("a", $(this)).attr("href").substr(1);
+                        $("div", obj).hide();
+                        $("#" + divid, obj).show();
+                    };
+                });
+            };
+        })(jQuery);
+    </script>
+</head>
+<body>
+<!--tabs示例-->
+<div id="mytabs">
+    <!--选项卡区域-->
+    <ul>
+        <li><a href="#tabs1">选项1</a></li>
+        <li><a href="#tabs2">选项2</a></li>
+        <li><a href="#tabs3">选项3</a></li>
+    </ul>
+    <!--面板区域-->
+    <div id="tabs1">11111</div>
+    <div id="tabs2">22222</div>
+    <div id="tabs3">33333</div>
+</div>
+</body>
+</html>
